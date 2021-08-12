@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { AppoloProvider } from '@appolo/react-hooks';
-import AppoloClient from 'appolo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 
-const client = new AppoloClient({
+const client = new ApolloClient({
   request: (operation) => {
     const token = localStorage.getItem("id_token");
 
@@ -21,7 +21,7 @@ const client = new AppoloClient({
 
 function App() {
   return (
-  <AppoloProvider client = {client}>
+  <ApolloProvider client = {client}>
 
     <Router>
       <>
@@ -34,7 +34,7 @@ function App() {
       </>
     </Router>
     
-  </AppoloProvider>
+  </ApolloProvider>
 
   );
 
